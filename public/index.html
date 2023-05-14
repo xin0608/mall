@@ -11,8 +11,8 @@
   </title>
   <script>
     var width = document.documentElement.clientWidth || document.body.clientWidth;
-    var ratio = width / 375;
-    var fontSize = 100 * ratio;
+    var ratio = width / 375;//比例
+    var fontSize = 100 * ratio;//font-size等比例变化
     document.getElementsByTagName('html')[0].style['font-size'] = fontSize + 'px';
   </script>
 </head>

@@ -24,27 +24,29 @@
             <span class="product__item__yen">￥</span>
             {{ item.price }}
             <span class="product__item__usedprice">￥{{ item.oldPrice }}</span>
-            <span
-              class="iconfont product__item__reduce"
-              @click="
-                () => {
-                  changeCartItemInfo(shopId, item._id, item, -1, shopName);
-                }
-              "
-              >&#xe75e;</span
-            >
-            <span class="product__item__count">
-              {{ cartList?.[shopId]?.productList?.[item._id]?.count || 0 }}
-            </span>
-            <span
-              class="iconfont product__item__add"
-              @click="
-                () => {
-                  changeCartItemInfo(shopId, item._id, item, 1, shopName);
-                }
-              "
-              >&#xe777;</span
-            >
+            <div class="product__item__operation">
+              <span
+                class="iconfont product__item__reduce"
+                @click="
+                  () => {
+                    changeCartItemInfo(shopId, item._id, item, -1, shopName);
+                  }
+                "
+                >&#xe75e;</span
+              >
+              <span class="product__item__count">
+                {{ cartList?.[shopId]?.productList?.[item._id]?.count || 0 }}
+              </span>
+              <span
+                class="iconfont product__item__add"
+                @click="
+                  () => {
+                    changeCartItemInfo(shopId, item._id, item, 1, shopName);
+                  }
+                "
+                >&#xe777;</span
+              >
+            </div>
           </div>
         </div>
       </div>
@@ -167,6 +169,7 @@ export default {
       line-height: 0.16rem;
     }
     &__price {
+      position: relative;
       display: flex;
       align-items: center;
       position: relative;
@@ -181,18 +184,24 @@ export default {
       text-decoration: line-through;
       margin-left: 0.06rem;
     }
+    &__operation {
+      position: absolute;
+      right: 0;
+      height: 0.17rem;
+    }
     &__reduce {
-      padding-left: 0.15rem;
+      // padding-left: 0.15rem;
       font-size: 0.28rem;
       color: #666666;
     }
     &__count {
+      position: relative;
       color: #333333;
-      // margin: 0 0.06rem;
+      top: -0.04rem;
     }
     &__add {
-      position: absolute;
-      right: 0;
+      // position: absolute;
+      // right: 0;
       font-size: 0.28rem;
       color: #0091ff;
     }

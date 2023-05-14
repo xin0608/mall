@@ -71,6 +71,7 @@ const userLoginEffect = (showToast) => {
       console.log(result);
       if (result?.errno === 0) {
         localStorage.isLogin2 = true;
+        localStorage.username = username;
         router.push({ name: "Home" });
       } else {
         showToast("登录失败");

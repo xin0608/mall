@@ -51,13 +51,14 @@ export default {
   }
   &__item {
     .iconfont {
-      font-size: 0.2rem;
+      font-size: 0.16rem;
     }
 
     &__title {
-      font-size: 20px;
-      transform: scale(0.5, 0.5);
-      transform-origin: center top;
+      font-size: 0.1rem;
+      // font-size: 20px;
+      // transform: scale(0.5, 0.5);
+      // transform-origin: center top;
     }
     &--active {
       a {

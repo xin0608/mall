@@ -108,17 +108,33 @@ export default {
       showMask.value = true;
     };
     const { show, message, showToast } = showToastEffect();
+
     const handleConfirmOrder = async (isCanceled) => {
       const products = [];
       for (let i in productList) {
         const product = productList[i];
+
+        console.log(product);
+        console.log(product.check);
+
         if (product.check) {
-          products.push({ id: product._id, num: product.count });
+          products.push({ num: product.count, id: product._id });
         }
       }
+
+      // 假数据
+      const address = {
+        username: "19997980078",
+        city: "北京市",
+        department: "xx小区",
+        houseNumber: "门牌号1",
+        name: "张三",
+        phone: "16697980058",
+      };
       try {
         const result = await post("/api/order", {
-          addressId: 1,
+          username: localStorage.username,
+          address,
           shopId,
           shopName,
           isCanceled,
@@ -174,15 +190,15 @@ export default {
     left: 0;
   }
   .address {
-    position: relative;
-    display: flex;
-    flex-direction: column;
     position: absolute;
-    box-sizing: border-box;
-    width: 3.39rem;
+    left: 0;
+    right: 0;
     height: 1.11rem;
     margin: 0 0.18rem;
     padding: 0.16rem;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
     background: #ffffff;
     border-radius: 0.04rem;
     z-index: 99;
@@ -301,14 +317,17 @@ export default {
   right: 0;
   background: rgba(0, 0, 0, 0.5);
   &__success {
+    position: absolute;
+    top: 2.43rem;
+    left: 0.37rem;
+    right: 0.37rem;
+    height: 1.57rem;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: relative;
-    margin: 2.43rem 0.37rem 2.67rem;
-    width: 3.01rem;
-    height: 1.57rem;
+
     background: #ffffff;
     border-radius: 0.04rem;
     font-size: 0.18rem;
@@ -326,13 +345,17 @@ export default {
     }
   }
   &__content {
+    position: absolute;
+    top: 2.43rem;
+    left: 0.37rem;
+    right: 0.37rem;
+    height: 1.57rem;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 2.43rem 0.37rem 2.67rem;
-    width: 3.01rem;
-    height: 1.57rem;
+
     background: #ffffff;
     border-radius: 0.04rem;
     &__title {

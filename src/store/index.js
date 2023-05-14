@@ -67,12 +67,13 @@ export default createStore({
       state.cartList[shopId] = { shopName: '', productList: {} };
       setLocalCartList(state);
     },
-    // 支付订单后清空被支付的商品信息
+    // 支付订单后清空被支付的商品信息,并且恢复默认不选中
     cleanInOrderProducts(state, payload) {
       const { shopId, products } = payload;
       for (let i in products) {
         const _id = products[i].id;
         state.cartList[shopId].productList[_id].count = 0;
+        state.cartList[shopId].productList[_id].check = false;
       }
       setLocalCartList(state);
     },

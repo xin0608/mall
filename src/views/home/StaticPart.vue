@@ -84,7 +84,7 @@ export default {
     color: #b6b6b6;
   }
   &__text {
-    width: 2.95rem;
+    width: 88%;
     height: 0.32rem;
     margin: 0 0.18rem 0.12rem;
     padding-left: 0.44rem;

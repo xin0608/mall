@@ -14,6 +14,7 @@
 import { ref } from "vue";
 import { get } from "../../utils/request";
 import ShopMessage from "../../components/ShopMessage.vue";
+
 const getNearListEffect = () => {
   const nearList = ref([]);
   const getNearList = async () => {
@@ -25,6 +26,7 @@ const getNearListEffect = () => {
   };
   return { nearList, getNearList };
 };
+
 export default {
   name: "Near",
   components: { ShopMessage },

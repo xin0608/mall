@@ -5,7 +5,7 @@
     <span class="iconfont shop__search">&#xe65c;</span>
     <!-- 防止出现裂图  v-show="data.item.imgUrl"-->
     <div class="shop__msg">
-      <ShopMessage :item="item" v-show="item.imgUrl" />
+      <ShopMessage :item="item" :showBorder="false" v-show="item.imgUrl" />
     </div>
   </div>
   <Content :shopName="item.name" />
@@ -18,19 +18,22 @@ import { useRouter, useRoute } from "vue-router";
 import ShopMessage from "../../components/ShopMessage.vue";
 import Content from "./Content.vue";
 import Cart from "./Cart.vue";
+
 const getDataEffect = () => {
   const route = useRoute();
   console.log(route.params.id);
+
   const data = reactive({ item: {} });
   const getData = async () => {
     const result = await get(`/api/shop/${route.params.id}`);
     if (result?.errno === 0 && result?.data) {
-      data.item = result.data[route.params.id - 1];
+      data.item = result.data;
     }
   };
   const { item } = toRefs(data);
   return { item, getData };
 };
+
 const handleBackEffect = () => {
   const router = useRouter();
   const handleBack = () => {
@@ -38,6 +41,7 @@ const handleBackEffect = () => {
   };
   return { handleBack };
 };
+
 export default {
   name: "Shop",
   components: { ShopMessage, Content, Cart },

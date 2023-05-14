@@ -14,7 +14,7 @@
           <img
             v-if="innerIndex <= 3"
             class="orderList__item__img"
-            :src="innerItem.product.img"
+            :src="innerItem.product.imgUrl"
             alt=""
           />
           <span v-if="innerIndex > 3">...</span>

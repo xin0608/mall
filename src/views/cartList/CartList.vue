@@ -66,6 +66,7 @@ export default {
   margin: 0.11rem 1.11rem;
   font-size: 0.16rem;
   color: $content-fontcolor;
+  text-align: center;
 }
 .cartList {
   overflow-y: scroll;
