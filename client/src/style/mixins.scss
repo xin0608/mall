@@ -1,0 +1,6 @@
+// 多行文本省略
+@mixin ellipse {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
